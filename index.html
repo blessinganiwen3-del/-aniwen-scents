@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aniwen's Scents | Perfume Collections</title>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- Fixed Google Fonts URL: NO extra spaces -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Aniwen's Scents</h1>
+      <p>Crafted scents for the soul. Discover your signature fragrance.</p>
+      <a href="#collection" class="btn">Explore Collection</a>
+    </div>
+    <!-- Dark mode toggle -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+  </header>
+
+  <!-- Collection -->
+  <section id="collection" class="section">
+    <h2>Our Signature Scents</h2>
+    <div class="perfume-grid">
+      
+      <!-- Velvet Rose -->
+<div class="perfume-card">
+  <img 
+    src="assets/velvet-rose.jpg"
+    alt="Velvet Rose luxury perfume"
+    class="perfume-image"
+  >
+  <div class="perfume-info">
+    <h3>Velvet Rose</h3>
+    <p class="brand">Aniwen's Scents</p>
+    <p class="notes">Top: Bergamot • Middle: Rose • Base: Musk</p>
+    <p class="price">$120</p>
+    <div class="scent-pyramid">
+      <div class="pyramid-layer top">Top: Bergamot</div>
+      <div class="pyramid-layer middle">Middle: Rose</div>
+      <div class="pyramid-layer base">Base: Musk</div>
+    </div>
+  </div>
+</div>
+
+  <!-- Midnight Amber -->
+<div class="perfume-card">
+  <img
+    src="assets/midnight-amber.jpg"
+    alt="Midnight Amber luxury perfume bottle"
+    class="perfume-image"
+  >
+  <div class="perfume-info">
+    <h3>Midnight Amber</h3>
+    <p class="brand">Aniwen's Scents</p>
+    <p class="notes">Top: Spice • Middle: Vanilla • Base: Amber</p>
+    <p class="price">$135</p>
+    <div class="scent-pyramid">
+      <div class="pyramid-layer top">Top: Spice</div>
+      <div class="pyramid-layer middle">Middle: Vanilla</div>
+      <div class="pyramid-layer base">Base: Amber</div>
+    </div>
+  </div>
+</div>
+
+      <!-- Citrus Breeze -->
+      <div class="perfume-card">
+        <img 
+          src="assets/citrus-breeze.jpg"
+          alt="Citrus Breeze perfume bottle"
+          class="perfume-image"
+        >
+        <div class="perfume-info">
+          <h3>Citrus Breeze</h3>
+          <p class="brand">Aniwen's Scents</p>
+          <p class="notes">Top: Lemon • Middle: Green Tea • Base: Cedar</p>
+          <p class="price">$110</p>
+          <div class="scent-pyramid">
+            <div class="pyramid-layer top">Top: Lemon</div>
+            <div class="pyramid-layer middle">Middle: Green Tea</div>
+            <div class="pyramid-layer base">Base: Cedar</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Scent Quiz -->
+  <section id="quiz" class="section light-bg">
+    <div class="container">
+      <h2>Find Your Perfect Scent</h2>
+      <p>Answer 3 questions. We'll match you to your soul fragrance.</p>
+
+      <div class="quiz-steps" id="quizSteps">
+        <!-- Step 1 -->
+        <div class="quiz-step active" data-step="1">
+          <h3>What's your current vibe?</h3>
+          <div class="options">
+            <button class="option-btn" onclick="selectAnswer('vibe', 'dreamy')">Dreamy & Romantic</button>
+            <button class="option-btn" onclick="selectAnswer('vibe', 'bold')">Bold & Mysterious</button>
+            <button class="option-btn" onclick="selectAnswer('vibe', 'calm')">Calm & Grounded</button>
+            <button class="option-btn" onclick="selectAnswer('vibe', 'energetic')">Fresh & Energetic</button>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="quiz-step" data-step="2">
+          <h3>Your favorite season?</h3>
+          <div class="options">
+            <button class="option-btn" onclick="selectAnswer('season', 'spring')">Spring</button>
+            <button class="option-btn" onclick="selectAnswer('season', 'summer')">Summer</button>
+            <button class="option-btn" onclick="selectAnswer('season', 'autumn')">Autumn</button>
+            <button class="option-btn" onclick="selectAnswer('season', 'winter')">Winter</button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="quiz-step" data-step="3">
+          <h3>Pick a note you love:</h3>
+          <div class="options">
+            <button class="option-btn" onclick="selectAnswer('note', 'rose')">Rose</button>
+            <button class="option-btn" onclick="selectAnswer('note', 'bergamot')">Bergamot</button>
+            <button class="option-btn" onclick="selectAnswer('note', 'vanilla')">Vanilla</button>
+            <button class="option-btn" onclick="selectAnswer('note', 'sandalwood')">Sandalwood</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="quiz-actions">
+        <button id="prevBtn" class="btn outlined" onclick="prevStep()" style="display:none;">← Back</button>
+        <button id="nextBtn" class="btn" onclick="nextStep()">Next</button>
+        <button id="submitBtn" class="btn" onclick="submitQuiz()" style="display:none;">Reveal My Scent</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section id="story" class="section light-bg">
+    <div class="container">
+      <h2>The Art of Scent</h2>
+      <p>Wúnmi Royale Scents was born from a love of memory, emotion, and luxury.</p>
+      <p>Each fragrance is crafted to evoke moments — a sunset in Lagos, a quiet morning in Paris, the warmth of home.</p>
+      <p>Designed by Blessing Aniwen — because scent should be personal, powerful, and poetic.</p>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section id="newsletter" class="section">
+    <div class="container">
+      <h2>Stay Informed</h2>
+      <p>Get early access to new scents and exclusive offers.</p>
+      <form id="subscribeForm">
+        <input type="email" placeholder="Your email" required>
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+      <div class="social-icons">
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="Twitter">🐦</a>
+        <a href="#" aria-label="Pinterest">📌</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Aniwen's Scents. Crafted with passion by Blessing Aniwen.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

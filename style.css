@@ -1,0 +1,405 @@
+/* ===== Theme Variables ===== */
+:root {
+  /* Light theme (default) */
+  --bg: #ffffff;
+  --text: #2a2a2a;
+  --card-bg: #ffffff;
+  --light-bg: #faf9f6;
+  --gray: #7a7a7a;
+  --border: #e0e0e0;
+  --gold: #c5a467;
+  --gold-hover: #a98a55;
+  --dark: #2a2a2a;
+  --header-overlay: rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] {
+  /* Dark theme overrides */
+  --bg: #121212;
+  --text: #f0f0f0;
+  --card-bg: #1e1e1e;
+  --light-bg: #1a1a1a;
+  --gray: #aaaaaa;
+  --border: #333;
+  --gold: #d4af37;
+  --gold-hover: #b8860b;
+  --dark: #f0f0f0;
+  --header-overlay: rgba(0, 0, 0, 0.6);
+}
+
+/* ===== Base Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.light-bg {
+  background-color: var(--light-bg);
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  height: 100vh;
+  background: linear-gradient(var(--header-overlay), var(--header-overlay)),
+              url('https://images.unsplash.com/photo-1609081211217-63e11a8b0d4f?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+/* ===== Dark Mode Toggle ===== */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  background-color: var(--gold);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover {
+  background-color: var(--gold-hover);
+  transform: translateY(-2px);
+}
+
+.btn.outlined {
+  background: transparent;
+  border: 2px solid var(--gold);
+  color: var(--gold);
+}
+
+/* ===== Perfume Grid ===== */
+.perfume-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.perfume-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s;
+}
+
+.perfume-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+}
+
+/* Perfume image styling */
+.perfume-image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px 12px 0 0;
+}
+
+.perfume-info {
+  padding: 1.5rem;
+}
+
+.perfume-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+  color: var(--text);
+}
+
+.brand {
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.notes {
+  color: var(--gray);
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+}
+
+.price {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 1.2rem;
+}
+
+/* ===== Quiz ===== */
+.quiz-steps {
+  margin: 2rem 0;
+  min-height: 180px;
+}
+
+.quiz-step {
+  display: none;
+}
+
+.quiz-step.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 1.5rem;
+}
+
+.option-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.option-btn:hover {
+  border-color: var(--gold);
+  background-color: var(--light-bg);
+}
+
+.quiz-actions {
+  margin-top: 2rem;
+}
+
+/* ===== Quiz Result Card ===== */
+.result-card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.result-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.result-info {
+  flex: 1;
+}
+
+.result-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.result-desc {
+  font-style: italic;
+  color: var(--gray);
+  margin-bottom: 1rem;
+}
+
+.result-notes {
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.result-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+@media (max-width: 600px) {
+  .result-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  .result-image {
+    width: 100%;
+    height: 200px;
+  }
+  .result-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ===== Scent Pyramid ===== */
+.scent-pyramid {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--light-bg);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.pyramid-layer {
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  margin: 0.2rem 0;
+  font-weight: 500;
+}
+
+.pyramid-layer.top { background: #ffe0e0; color: #c5a467; }
+.pyramid-layer.middle { background: #fff0e0; color: #a98a55; }
+.pyramid-layer.base { background: #f0e0ff; color: #8b6d53; }
+
+/* ===== Story Section ===== */
+#story p {
+  max-width: 600px;
+  margin: 1rem auto;
+  line-height: 1.8;
+  color: var(--gray);
+}
+
+/* ===== Newsletter ===== */
+#newsletter input {
+  padding: 0.8rem;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-right: 0.5rem;
+}
+
+#newsletter button {
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  #newsletter input,
+  #newsletter button {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+}
+
+/* ===== Social Icons ===== */
+.social-icons {
+  margin-top: 1.5rem;
+}
+
+.social-icons a {
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  color: var(--gold-hover);
+}
+
+/* ===== Footer ===== */
+footer {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 600px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .options {
+    gap: 8px;
+  }
+
+  .option-btn {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  .perfume-grid {
+    grid-template-columns: 1fr;
+  }
+}
